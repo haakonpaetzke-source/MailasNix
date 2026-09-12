@@ -22,8 +22,8 @@
 
     hyfetch
     btop
-
     thunar
+
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }

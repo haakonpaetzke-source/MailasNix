@@ -6,11 +6,12 @@
 
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
 
+    chaotic.url = "github:chaotic-cx/nyx";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-#    };
     
     hyprland = {
       url = "github:hyprwm/Hyprland/v0.52.2?submodules=true";
@@ -19,6 +20,11 @@
 
     hyprlock = {
       url = "github:hyprwm/hyprlock/v0.9.2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    stylix = {
+      url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -67,6 +73,7 @@
           overlays = [
              inputs.rust-overlay.overlays.default
              inputs.emaxs-overlay.overlays.default
+             inputs.chaotic.overlays.default
           ];
        }; 
 
@@ -91,11 +98,15 @@
           ./configuration.nix
 
           inputs.home-manager.nixosModules.home-manager
+          inputs.stylix.nixosModules.stylix
+
           {
              home-manager.extraSpecialArgs = {
                inherit pkgs pkgs-stable inputs;
              };
           }
+
+          inputs.chaotic.nixosModules.default
         ];
       };
     };

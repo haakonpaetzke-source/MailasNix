@@ -9,5 +9,6 @@
     ./includethesepkgs.nix
     ./ps.nix
     ./home.nix
+    ./stylix.nix
   ];
 }
