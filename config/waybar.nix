@@ -1,9 +1,7 @@
-# Am besten in einer eigenen config/waybar.nix, dann in config/default.nix importieren
 {config, paks, lib, ... }:
 {
   programs.waybar = {
     enable = true;
-    # systemd.enable bleibt auf "true" (Standard) - startet automatisch mit deiner Session
 
     settings = {
       mainBar = {
