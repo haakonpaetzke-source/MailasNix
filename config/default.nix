@@ -3,6 +3,9 @@
   imports = [
     ./hyprland.nix
     ./git.nix
+    ./kitty-wofi.nix
+    ./waybar.nix
+    ./stylix.nix
   ];
 
   home = {
