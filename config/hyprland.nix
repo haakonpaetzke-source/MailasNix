@@ -1,18 +1,14 @@
 { config, pkgs, ... }: {
-  home.packages = with pkgs; [
-    wl-clipboard
-    cliphist
-    thunar
-  ];
-
-  # Hyprland als Window Manager in Home Manager
   wayland.windowManager.hyprland = {
     enable = true;
-    # Deine Hyprland-Konfiguration
+    xwayland.enable = true;
+    configType = "hyprlang";
+
+    package = null;
+    portalPackage = null;
+
     settings = {
-      # Monitor
-      monitor = ",preferred,auto,auto";
-      
+      monitor = ",preferred,auto,auto";      
       # Eingabe
       input = {
         kb_layout = "de";
@@ -22,25 +18,24 @@
 
         follow_mouse = 1;
 
-        sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
+        sensitivity = 0.5; # -1.0 - 1.0, 0 means no modification.
 
-        touchpad = {
-          natural_scroll = false;
-        };
+        touchpad.natural_scroll = false;
       };
-      # Allgemein
+
       general = {
         gaps_in = 5;
-        gaps_out = 10;
+        gaps_out = 8;
         border_size = 2;
         "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
         "col.inactive_border" = "rgba(595959aa)";
       };
-      
-      # Dekoration
+    
       decoration = {
         rounding = 12;
         blur.enabled = true;
+        blur.size = 4;
+        blur.passes = 2;
         shadow.enabled = true;
       };
       
@@ -52,8 +47,7 @@
       
       # Autostart
       exec-once = [
-        "waybar"
-        "mako"  # Benachrichtigungen
+        "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
       ];
@@ -76,6 +70,12 @@
         "$mod, right, movefocus, r"
         "$mod, up, movefocus, u"
         "$mod, down, movefocus, d"
+
+        # Fenster hinundher switchen
+        "$mod SHIFT, left, swapwindow, l"
+        "$mod SHIFT, right, swapwindow, r"
+        "$mod SHIFT, up, swapwindow, u"
+        "$mod SHIFT, down, swapwindow, d"
         
         # Workspaces
         "$mod, 1, workspace, 1"
@@ -88,6 +88,9 @@
         "$mod SHIFT, 1, movetoworkspace, 1"
         "$mod SHIFT, 2, movetoworkspace, 2"
         "$mod SHIFT, 3, movetoworkspace, 3"
+
+        #Mutebutton
+        ", XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
       ];
       
       # Maus-Keybindings
@@ -95,13 +98,30 @@
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
       ];
+      binde = [
+        ", XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
+        ", XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
+        ", XF86MonBrightnessUp, exec, brightnessctl set +5%"
+        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+      ];
+    };
+  };
+
+  #Hyprpaper für Hintergund
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      ipc = "on";
+      splash = false;
+      preload = [ "./Pictures/ryo.jpeg" ];
+      wallpaper = [ ",./Pictures/ryo.jpeg" ];
     };
   };
 
   # Waybar (Status-Leiste)
   programs.waybar = {
     enable = true;
-    systemd.enable = false;  # Wir starten es über exec-once
+    systemd.enable = false;
   };
 
   # Wofi (App-Launcher)
