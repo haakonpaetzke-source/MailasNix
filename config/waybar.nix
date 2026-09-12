@@ -8,11 +8,18 @@
         layer = "top";
         position = "top";
         height = 32;
-        spacing = 4;
+        spacing = 0;
 
         modules-left = [ "hyprland/workspaces" "hyprland/window" ];
         modules-center = [ "clock" ];
-        modules-right = [ "pulseaudio" "network" "battery" "tray" ];
+        modules-right = [
+          "cpu"
+          "memory"
+          "pulseaudio"
+          "network"
+          "battery"
+          "tray"
+        ];
 
         "hyprland/workspaces" = {
           format = "{icon}";
@@ -25,20 +32,30 @@
         };
 
         "clock" = {
-          format = "{:%H:%M}   {:%d.%m.%Y}";
+          format = "{:%H:%M   %d.%m.%Y}";
           tooltip-format = "{:%A, %d. %B %Y}";
           format-alt = "{:%A, %d.%m.%Y}";
         };
 
+        "cpu" = {
+          format = "🪷{usage}%";
+          tooltip-format = "CPU: {usage}%";
+        };
+
+        "memory" = {
+          format = "🌺{percentage}%";
+          tooltip-format = "RAM: {used:0.1f} GiB / {total:0.1f} GiB";
+        };
+
         "network" = {
           format-wifi = "  {essid} ({signalStrength}%)";
-          format-ethernet = "󰈀 Verbunden";
-          format-disconnected = "󰤭 Kein Netzwerk";
+          format-ethernet = "🌸 Verbunden";
+          format-disconnected = "💀 Kein Netzwerk";
           tooltip-format = "{ifname}: {ipaddr}/{cidr}";
         };
 
         "pulseaudio" = {
-          format = "{icon}  {volume}%";
+          format = "🔊{volume}%";
           format-muted = "󰝟 Stumm";
           format-icons = {
             default = [ "" "" "" ];
@@ -64,33 +81,44 @@
 
     style = ''
       * {
-        font-family: "Noto Sans", "Noto Sans CJK JP", "Noto Color Emoji";
+        font-family: "M PLUS Rounded 1c", "Noto Color Emoji";
         font-size: 13px;
         border: none;
         border-radius: 0;
+        letter-spacing: -1px;
       }
 
       window#waybar {
-        background-color: #1a1a1d;
-        color: #d4d0c8;
-        border-bottom: 2px solid #b5a24a;
-      }
+      background: rgba(11, 16, 32, 0.92);
+      color: #D9E2F2;
+      border-bottom: 2px solid #305CDE;
+    }
 
-      #workspaces button {
-        padding: 0 8px;
-        color: #d4d0c8;
-        background: transparent;
-      }
+    tooltip {
+      background: #0B1020;
+      border: 1px solid #305CDE;
+      border-radius: 8px;
+      color: #D9E2F2;
+    }
 
-      #workspaces button.active {
-        color: #1a1a1d;
-        background-color: #b5a24a;
-        border-radius: 6px;
-      }
+    #workspaces button {
+      color: #305CDE;
+      background: transparent;
+      border-radius: 8px;
+      padding: 0 6px;
+      margin: 4px 1px;
+    }
 
-      #workspaces button.urgent {
-        background-color: #8b3a3a;
-      }
+    #workspaces button:hover {
+      background: #26304A;
+      color: #90B0FF;
+    }
+
+    #workspaces button.active {
+      background: #305CDE;
+      color: #F4F7FF;
+    }
+
 
       #clock {
         font-weight: bold;
@@ -102,7 +130,7 @@
       #battery.charging { color: #4a5d43; }
 
       #clock, #battery, #network, #pulseaudio, #tray {
-        padding: 0 10px;
+        padding: 0 2px;
       }
     '';
   };

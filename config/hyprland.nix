@@ -27,8 +27,8 @@
         gaps_in = 5;
         gaps_out = 8;
         border_size = 2;
-        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
+        "col.active_border" = "rgb(305cde) rgb(39c5bb) 45deg";
+        "col.inactive_border" = "rgb(26304a)";
       };
     
       decoration = {
@@ -115,26 +115,6 @@
       splash = false;
       preload = [ "./Pictures/ryo.jpeg" ];
       wallpaper = [ ",./Pictures/ryo.jpeg" ];
-    };
-  };
-
-  # Waybar (Status-Leiste)
-  programs.waybar = {
-    enable = true;
-    systemd.enable = false;
-  };
-
-  # Wofi (App-Launcher)
-  programs.wofi = {
-    enable = true;
-  };
-
-  # Terminal
-  programs.kitty = {
-    enable = true;
-    settings = {
-      font_size = 11;
-      background_opacity = "0.95";
     };
   };
 

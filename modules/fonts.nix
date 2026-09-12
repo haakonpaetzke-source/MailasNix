@@ -1,29 +1,27 @@
+ config, pkgs, ... }: {
 fonts = {
   packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk-sans
+    mplus-outline-fonts.githubRelease
     noto-fonts-color-emoji
   ];
 
-  fontconfig = {
-    defaultFonts = {
-      sansSerif = [
-        "Noto Sans"
-        "Noto Sans CJK JP"
-      ];
+  fontconfig.defaultFonts = {
+    sansSerif = [
+      "M PLUS Rounded 1c"
+    ];
 
-      serif = [
-        "Noto Serif"
-        "Noto Serif CJK JP"
-      ];
+    serif = [
+      "M PLUS Rounded 1c"
+    ];
 
-      monospace = [
-        "Noto Sans Mono CJK JP"
-      ];
+    monospace = [
+      "M PLUS Rounded 1c"
+    ];
 
-      emoji = [
-        "Noto Color Emoji"
-      ];
-    };
+    emoji = [
+      "Noto Color Emoji"
+    ];
+  };
   };
 };
+}
