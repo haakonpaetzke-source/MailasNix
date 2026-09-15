@@ -6,9 +6,8 @@
     ./user.nix
     ./network.nix
     ./audio.nix
-    ./includethesepkgs.nix
+    ./includethesepkgspls.nix
     ./ps.nix
     ./home.nix
-#    ./stylix.nix
   ];
 }

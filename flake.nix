@@ -23,19 +23,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix = {
-      url = "github:nix-community/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     osage-grub-theme = {
       url = "github:Hitori-Laura/myGrubThemes";
       flake = false;
     };
 
     zen-browser = {
-      url = "github:youwen5/zen-browser-flake";
+      url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
 
     emaxs-overlay = {
@@ -98,7 +94,6 @@
           ./configuration.nix
 
           inputs.home-manager.nixosModules.home-manager
-          inputs.stylix.nixosModules.stylix
 
           {
              home-manager.extraSpecialArgs = {

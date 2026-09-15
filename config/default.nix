@@ -22,8 +22,6 @@
     waybar
     hyprpaper
     kitty
-
-    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
   
   programs.home-manager.enable = true;
