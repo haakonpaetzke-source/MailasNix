@@ -85,7 +85,7 @@
         font-size: 13px;
         border: none;
         border-radius: 0;
-        letter-spacing: -1px;
+        letter-spacing: 1px;
       }
 
       window#waybar {
@@ -130,7 +130,7 @@
       #battery.charging { color: #4a5d43; }
 
       #clock, #battery, #network, #pulseaudio, #tray {
-        padding: 0 2px;
+        padding: 0 10px;
       }
     '';
   };

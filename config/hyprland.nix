@@ -50,8 +50,10 @@
         "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
+        "waybar"
+        "hyprpaper"
       ];
-      
+
       # Keybindings
       "$mod" = "SUPER";
       
@@ -110,11 +112,16 @@
   #Hyprpaper für Hintergund
   services.hyprpaper = {
     enable = true;
+
     settings = {
-      ipc = "on";
+      ipc = true;
       splash = false;
-      preload = [ "./Pictures/ryo.jpeg" ];
-      wallpaper = [ ",./Pictures/ryo.jpeg" ];
+
+      wallpaper = {
+        monitor = "";
+        path = "/etc/nixos/config/Pictures/ryo.jpeg";
+        fit_mode = "cover";
+      };
     };
   };
 
