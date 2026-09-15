@@ -1,10 +1,12 @@
-{ config, pkgs, lib, ... }: 
+{ config, pkgs, lib, inputs, ... }: 
 {
   imports = [
     ./hyprland.nix
     ./git.nix
     ./kitty-wofi.nix
     ./waybar.nix
+    ./darkmode.nix
+    ./zen.nix
   ];
 
   home = {
@@ -20,6 +22,8 @@
     waybar
     hyprpaper
     kitty
+
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
   
   programs.home-manager.enable = true;
