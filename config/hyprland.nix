@@ -62,6 +62,7 @@
         "$mod, Q, killactive"
         "$mod, M, exit"
         "$mod, E, exec, thunar"
+        "$mod, Z, exec, zen-beta"
         "$mod, V, togglefloating"
         "$mod, R, exec, wofi --show drun"
         "$mod, P, pseudo"
