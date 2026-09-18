@@ -8,6 +8,7 @@
     ./darkmode.nix
     ./zen.nix
     ./mime.nix
+    ./vesktop
   ];
 
   home = {
@@ -29,6 +30,10 @@
     kitty
 
     yazi
+
+    signal-desktop
+    zapzap
+    vesktop
   ];
   
   programs.home-manager.enable = true;

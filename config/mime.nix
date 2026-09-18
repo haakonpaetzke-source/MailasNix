@@ -7,7 +7,7 @@
     krita
     inkscape
 
-    libreoffice
+    libreoffice-qt-stable
 
     zathura
 
