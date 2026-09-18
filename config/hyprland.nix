@@ -1,15 +1,17 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, inputs, ... }: {
   wayland.windowManager.hyprland = {
     enable = true;
+    #hallo
+    #hi
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+
     xwayland.enable = true;
     configType = "hyprlang";
 
-    package = null;
-    portalPackage = null;
-
     settings = {
       monitor = ",preferred,auto,auto";      
-      # Eingabe
+     
       input = {
         kb_layout = "de";
 #        kb_variant =
@@ -39,13 +41,12 @@
         shadow.enabled = true;
       };
       
-      # Layout
       dwindle = {
         pseudotile = true;
         preserve_split = true;
       };
       
-      # Autostart
+      # Bitty mach mal die Programme an :3
       exec-once = [
         "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "wl-paste --type text --watch cliphist store"
@@ -55,48 +56,41 @@
       ];
 
       # Keybindings
-      "$mod" = "SUPER";
-      
+      "$mod" = "SUPER";      
       bind = [
         "$mod, Return, exec, kitty"
         "$mod, Q, killactive"
         "$mod, M, exit"
-        "$mod, E, exec, thunar"
+        "$mod, E, exec, kitty -- yazi"
         "$mod, Z, exec, zen-beta"
         "$mod, V, togglefloating"
         "$mod, R, exec, wofi --show drun"
         "$mod, P, pseudo"
         "$mod, J, togglesplit"
         
-        # Fenster fokussieren
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"
         "$mod, up, movefocus, u"
         "$mod, down, movefocus, d"
 
-        # Fenster hinundher switchen
         "$mod SHIFT, left, swapwindow, l"
         "$mod SHIFT, right, swapwindow, r"
         "$mod SHIFT, up, swapwindow, u"
         "$mod SHIFT, down, swapwindow, d"
         
-        # Workspaces
         "$mod, 1, workspace, 1"
         "$mod, 2, workspace, 2"
         "$mod, 3, workspace, 3"
         "$mod, 4, workspace, 4"
         "$mod, 5, workspace, 5"
         
-        # Fenster zu Workspace verschieben
         "$mod SHIFT, 1, movetoworkspace, 1"
         "$mod SHIFT, 2, movetoworkspace, 2"
         "$mod SHIFT, 3, movetoworkspace, 3"
-
-        #Mutebutton
-        ", XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
+        "$mod SHIFT, 4, movetoworkspace, 4"
+        "$mod SHIFT, 5, movetoworkspace, 5"
       ];
       
-      # Maus-Keybindings
       bindm = [
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
@@ -126,7 +120,7 @@
     };
   };
 
-  # Benachrichtigungen
+  #Zu lautes Miaun :3
   services.mako = {
     enable = true;
     defaultTimeout = 5000;

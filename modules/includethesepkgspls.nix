@@ -1,27 +1,18 @@
 { config, pkgs, lib, inputs, ... }: {
   environment.systemPackages = with pkgs; [
-    vim
-
-    tree
- 
-    wget
-    hyprpaper
     kitty
-    waybar
-    wofi
-    mako
-    libnotify
-    wl-clipboard
-    cliphist
-    nwg-look
+    vim
+    #cool stuff
+    tree
+    hyfetch
+    btop
 
     grim
     slurp
 
+    wget
     lxqt.lxqt-policykit
 
-    hyfetch
-    btop
     thunar
   ];
 }

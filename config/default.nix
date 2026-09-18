@@ -7,6 +7,7 @@
     ./waybar.nix
     ./darkmode.nix
     ./zen.nix
+    ./mime.nix
   ];
 
   home = {
@@ -16,12 +17,18 @@
   };
 
   home.packages = with pkgs; [
+    #hyprland Stuff
     wl-clipboard
     cliphist
     thunar
     waybar
+    wofi
+    mako
     hyprpaper
+
     kitty
+
+    yazi
   ];
   
   programs.home-manager.enable = true;
