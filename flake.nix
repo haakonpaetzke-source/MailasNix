@@ -45,6 +45,11 @@
       url = "github:StevenBlack/hosts";
       flake = false;
     };
+
+    nixcord = {
+      url = "github:4evy/nixcord";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = 

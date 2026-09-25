@@ -8,7 +8,10 @@
     ./darkmode.nix
     ./zen.nix
     ./mime.nix
-    ./vesktop
+    ./vesktop.nix
+    ./donnervogel.nix
+    
+    inputs.nixcord.homeModules.nixcord
   ];
 
   home = {
@@ -33,7 +36,6 @@
 
     signal-desktop
     zapzap
-    vesktop
   ];
   
   programs.home-manager.enable = true;

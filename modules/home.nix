@@ -3,7 +3,7 @@
      useGlobalPkgs = true;
      useUserPackages = true;
 
-     backupFileExtension = "backup";
+     backupCommand = "cp --remove-destination";
 
      users = {
        "mai" = import ../config/default.nix;

@@ -13,6 +13,12 @@ in {
     portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
   };
 
+  security.wrappers.Hyprland = lib.mkForce {
+    source = "${pkgs.hyprland}/bin/Hyprland";
+    owner = "root";
+    group = "root";
+  };
+
   services.displayManager = {
     sddm = {
        enable = true;

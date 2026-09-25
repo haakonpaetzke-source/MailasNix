@@ -1,189 +1,248 @@
-{ pkgs, ... }:
-
-{
-  programs.vesktop = {
+{config, pkgs, inputs, ... }: {
+  programs.nixcord = {
     enable = true;
 
-    # ─────────────────────────────────────────────
-    # Vesktop selbst
-    # ─────────────────────────────────────────────
+    vesktop.enable = true;
 
-    settings = {
-      # Discord Stable verwenden
-      discordBranch = "stable";
+    config = {
 
-      # Hardwarebeschleunigung
-      hardwareAcceleration = true;
+      autoUpdate = false;
+      autoUpdateNotification = false;
+      notifyAboutUpdates = false;
 
-      # Discord/Vesktop nicht automatisch aktualisieren
-      # Nix soll die Version verwalten.
-      checkUpdates = false;
+      useQuickCss = true;
 
-      # Vesktop soll nicht unnötig im Tray bleiben
-      minimizeToTray = false;
-      tray = false;
+      plugins = {
+        betterFolders = {
+          enable = true;
+        };
 
-      # Eigene Titelleiste von Discord/Vesktop
-      customTitleBar = false;
+        betterUploadButton = {
+          enable = true;
+        };
 
-      # Statischer Fenstertitel
-      staticTitle = true;
+        viewIcons = {
+          enable = true;
+        };
 
-      # Splash Screen
-      splashTheming = true;
-      splashBackground = "#11151C";
-      splashColor = "#39C5BB";
-    };
+        volumeBooster = {
+          enable = true;
+        };
 
-    # ─────────────────────────────────────────────
-    # Vencord
-    # ─────────────────────────────────────────────
+        shikiCodeblocks = {
+          enable = true;
+        };
 
-    vencord = {
+        silentTyping = {
+          enable = true;
+        };
 
-      # Vencord aus Nixpkgs verwenden
-      useSystem = true;
+        fixYoutubeEmbeds = {
+          enable = true;
+        };
 
-      settings = {
-        # Vencord selbst nicht automatisch verändern
-        autoUpdate = false;
-        autoUpdateNotification = false;
-        notifyAboutUpdates = false;
+        imageZoom = {
+          enable = true;
+        };
 
-        # QuickCSS aktivieren
-        useQuickCss = true;
+        gifPaste = {
+          enable = true;
+        };
 
-        # ─────────────────────────────────────────
-        # Plugins
-        # ─────────────────────────────────────────
+        messageLatency = {
+          enable = true;
+        };
 
-        plugins = {
-
-          # Serverordner verbessern
-          BetterFolders = {
-            enabled = true;
-          };
-
-          # Bessere Upload-Funktionen
-          BetterUploadButton = {
-            enabled = true;
-          };
-
-          # Profilbilder größer anschauen
-          ViewIcons = {
-            enabled = true;
-          };
-
-          # Lautstärke über Discords normales Maximum
-          VolumeBooster = {
-            enabled = true;
-          };
-
-          # Schöne Syntax-Hervorhebung für Codeblöcke
-          ShikiCodeblocks = {
-            enabled = true;
-          };
-
-          SilentTyping = {
-            enabled = true;
-          };
-
-          FixYoutubeEmbeds = {
-            enabled = true;
-          };
-
-          ImageZoom = {
-            enabled = true;
-          };
-
-          GifPaste = {
-            enabled = true;
-          };
-
-          MessageLatency = {
-            enabled = true;
-          };
-
-          ReadAllNotificationsButton = {
-            enabled = true;
-          };
+        readAllNotificationsButton = {
+          enable = true;
         };
       };
-
-     #Theme Miku :3
-      extraQuickCss = ''
-        :root {
-          --miku-blue: #305CDE;
-          --miku-cyan: #39C5BB;
-          --miku-pink: #FF00FF;
-          --miku-bg: #11151C;
-          --miku-bg-dark: #0B1020;
-        }
-
-        .guilds_c48ade .scroller_fea3ef {
-          border-radius: 14px;
-        }
-
-        .wrapper__8436d {
-          transition:
-            transform 0.15s ease,
-            filter 0.15s ease;
-        }
-
-        .wrapper__8436d:hover {
-          transform: translateY(-2px);
-          filter: brightness(1.15);
-        }
-
-        .link__2e8e1.selected__2ea32 {
-          border-radius: 8px;
-        }
-
-        .mention {
-          color: #39C5BB !important;
-          background: rgba(57, 197, 187, 0.12) !important;
-          border-radius: 5px;
-        }
-
-        a {
-          color: #90D5FF;
-        }
-
-        code {
-          border-radius: 8px;
-        }
-
-        .messageListItem_d5deea {
-          border-radius: 6px;
-        }
-
-        ::-webkit-scrollbar {
-          width: 8px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-          background: #305CDE;
-          border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-          background: #0B1020;
-        }
-
-        .searchBar__97492 {
-          border-radius: 10px;
-        }
-
-        button {
-          transition:
-            background-color 0.15s ease,
-            transform 0.1s ease;
-        }
-
-        button:hover {
-          transform: translateY(-1px);
-        }
-      '';
     };
+
+    # ══════════════════════════════════════════════
+    # MIKU!!! :D
+    # ══════════════════════════════════════════════
+quickCss = ''
+  /* ═══════════════════════════════════════════════
+     🌊 MIKU / ROYAL BLUE THEME 🌊
+     ═══════════════════════════════════════════════ */
+
+  :root {
+    --miku-blue: #305CDE;
+    --miku-cyan: #39C5BB;
+    --miku-light-blue: #90D5FF;
+    --miku-pink: #FF00FF;
+    --miku-purple: #560591;
+
+    --miku-bg: #0B1020;
+    --miku-surface: #11151C;
+    --miku-surface-2: #151B2B;
+    --miku-hover: #1B2850;
+  }
+
+  /* ───────────────────────────────────────────────
+     Haupt-Hintergrund
+     ─────────────────────────────────────────────── */
+
+  .appMount__51fd7,
+  .bg__960e4,
+  .layer__960e4,
+  .container__133bf,
+  .content__5e434 {
+    background: var(--miku-bg) !important;
+  }
+
+  /* ───────────────────────────────────────────────
+     Server-/Channel-Bereich
+     ─────────────────────────────────────────────── */
+
+  .guilds__5e434 {
+    background: #080D19 !important;
+  }
+
+  .sidebar__5e434 {
+    background: var(--miku-surface) !important;
+  }
+
+  .panels__5e434 {
+    background: #0D1322 !important;
+  }
+
+  /* ───────────────────────────────────────────────
+     Channel-Liste
+     ─────────────────────────────────────────────── */
+
+  .container__2637a {
+    background: var(--miku-surface) !important;
+  }
+
+  .wrapper__2ea32:hover,
+  .link__2ea32:hover {
+    background: var(--miku-hover) !important;
+  }
+
+  /* ───────────────────────────────────────────────
+     Chat
+     ─────────────────────────────────────────────── */
+
+  .chatContent_f75fb0 {
+    background: var(--miku-bg) !important;
+  }
+
+  .messagesWrapper__36d07 {
+    background: var(--miku-bg) !important;
+  }
+
+  .message__5126c:hover {
+    background: rgba(48, 92, 222, 0.08) !important;
+  }
+
+  /* ───────────────────────────────────────────────
+     Links
+     ─────────────────────────────────────────────── */
+
+  a {
+    color: var(--miku-light-blue) !important;
+  }
+
+  a:hover {
+    color: var(--miku-cyan) !important;
+  }
+
+  /* ───────────────────────────────────────────────
+     Mentions
+     ─────────────────────────────────────────────── */
+
+  .mention {
+    color: var(--miku-cyan) !important;
+    background: rgba(57, 197, 187, 0.14) !important;
+    border-radius: 5px;
+  }
+
+  /* ───────────────────────────────────────────────
+     Buttons
+     ─────────────────────────────────────────────── */
+
+  .button__201d5 {
+    background: var(--miku-blue) !important;
+  }
+
+  .button__201d5:hover {
+    background: var(--miku-cyan) !important;
+  }
+
+  /* ───────────────────────────────────────────────
+     Search
+     ─────────────────────────────────────────────── */
+
+  .searchBar__97492 {
+    background: var(--miku-surface-2) !important;
+    border-radius: 10px;
+  }
+
+  /* ───────────────────────────────────────────────
+     Textfelder
+     ─────────────────────────────────────────────── */
+
+  .scrollableContainer__74017 {
+    background: var(--miku-surface) !important;
+    border: 1px solid rgba(48, 92, 222, 0.35);
+  }
+
+  /* ───────────────────────────────────────────────
+     Code
+     ─────────────────────────────────────────────── */
+
+  code {
+    background: #080D19 !important;
+    border-radius: 8px;
+  }
+
+  /* ───────────────────────────────────────────────
+     Scrollbar
+     ─────────────────────────────────────────────── */
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--miku-blue) !important;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--miku-cyan) !important;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #080D19 !important;
+  }
+
+  /* ───────────────────────────────────────────────
+     Auswahl
+     ─────────────────────────────────────────────── */
+
+  ::selection {
+    background: var(--miku-blue);
+    color: white;
+  }
+'';
   };
+
+  
+    home.activation.makeVesktopConfigWritable =
+      config.lib.dag.entryAfter [ "writeBoundary" ] ''
+        for file in \
+          "$HOME/.config/vesktop/settings/settings.json" \
+          "$HOME/.config/vesktop/settings/quickCss.css" \
+          "$HOME/.config/Vencord/settings/quickCss.css"
+        do
+          if [ -L "$file" ]; then
+            target="$(readlink -f "$file")"
+            rm -f "$file"
+            install -Dm644 "$target" "$file"
+          fi
+        done
+      '';
 }
