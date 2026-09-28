@@ -14,7 +14,7 @@
        sudo nixos-rebuild switch --flake /etc/nixos#nixos 
      '') 
      
-     (pkgs.writeShellScriptBin "test" 
+     (pkgs.writeShellScriptBin "nixtest" 
      '' 
        sudo nixos-rebuild test --flake /etc/nixos#nixos 
      '') 
