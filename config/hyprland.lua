@@ -9,7 +9,7 @@ hl.monitor({
 local mainMod = "SUPER"
 local terminal = "kitty"
 local fileManager = "yazi"
-local browser = "zen-browser"
+local browser = "zen-beta"
 local menu = "wofi --show drun"
 
 -- Bitty mach mal die Programme an :3
@@ -18,6 +18,7 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("systemctl --user start hyprland-session.target")
   hl.exec_cmd("wl-paste --type text --watch cliphist store")
   hl.exec_cmd("wl-paste --type image --watch cliphist store")
+  hl.exec_cmd("waybar")
 end)
 
 -- fancy aussehen oder so...

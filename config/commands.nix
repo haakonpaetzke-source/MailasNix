@@ -74,24 +74,29 @@
        echo "Commiting everything";
        sudo git commit -m "$1";
        echo "Pushing everything :3";
-       sudo git push orgin main;
+       sudo git push origin main;
      '') 
    ]; 
 
-   programs.bash.shellAliases = { 
-    # Navigation 
-    ".." = "cd .."; 
-    "..." = "cd ../.."; 
-    "...." = "cd ../../.."; 
-    
-    # Git shit 
-    gs = "git status"; 
-    ga = "sudo git add"; 
-    gp = "git push origin main"; 
-    gl = "git log --oneline --graph --decorate"; 
+   programs.bash = {
+    enable = true;
 
-    # Misc 
-    c = "clear"; 
-    sn = "sudo nano";
+    shellAliases = { 
+      # Navigation 
+      ".." = "cd .."; 
+      "..." = "cd ../.."; 
+      "...." = "cd ../../.."; 
+      "nixH" = "cd /etc/nixos/";
+    
+      # Git shit 
+      gs = "git status"; 
+      ga = "sudo git add"; 
+      gp = "git push origin main"; 
+      gl = "git log --oneline --graph --decorate"; 
+
+      # Misc 
+      c = "clear"; 
+      sn = "sudo nano";
+    };
   }; 
 }
