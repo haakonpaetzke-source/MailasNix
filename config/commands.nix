@@ -9,7 +9,7 @@
        echo "✓ NixOS is up to date :3" 
      '')
  
-     (pkgs.writeShellScriptBin "update" 
+     (pkgs.writeShellScriptBin "Update" 
      '' 
        sudo nixos-rebuild switch --flake /etc/nixos#nixos 
      '') 
@@ -24,7 +24,7 @@
        sudo nixos-rebuild boot --flake /etc/nixos#nixos 
      '') 
     
-     (pkgs.writeShellScriptBin "cleanup" 
+     (pkgs.writeShellScriptBin "cleanUP" 
      ''
        echo "-> Cleaning old generations..." 
        sudo nix-collect-garbage -d 
