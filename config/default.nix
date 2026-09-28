@@ -10,6 +10,7 @@
     ./mime.nix
     ./vesktop.nix
     ./donnervogel.nix
+    ./commands.nix
     
     inputs.nixcord.homeModules.nixcord
   ];
