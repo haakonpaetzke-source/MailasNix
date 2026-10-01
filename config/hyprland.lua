@@ -31,8 +31,8 @@ hl.config({
     gaps_out = 8,
     border_size = 2,
     col = {
-      active_border = { colors = { "rgba(b5a24aee)", "rgba(4a5d43ee)" }, angle = 45 },
-      inactive_border = "rgba(3a3a3daa)",
+      active_border = { colors = { "rgba(afe8e4ff)", "rgba(2e9e96cc)" }, angle = 45 },
+      inactive_border = "rgba(305cdecc)",
     },
     layout = "dwindle",
   },
@@ -63,7 +63,7 @@ hl.config({
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.exit())
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("kitty yazi"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())

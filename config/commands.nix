@@ -81,6 +81,12 @@
    programs.bash = {
     enable = true;
 
+    initExtra = ''
+      if [[ $- == *i* ]]; then
+        hyfetch
+      fi
+    '';
+
     shellAliases = { 
       # Navigation 
       ".." = "cd .."; 

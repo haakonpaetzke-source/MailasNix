@@ -28,6 +28,10 @@
       flake = false;
     };
 
+    milk-grub-theme = {
+      url = "github:gemakfy/MilkGrub";
+    };    
+
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -107,6 +111,8 @@
           }
 
           inputs.chaotic.nixosModules.default
+
+          inputs.milk-grub-theme.nixosModule
         ];
       };
     };

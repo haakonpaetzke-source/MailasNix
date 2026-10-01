@@ -5,6 +5,7 @@
     #cool stuff
     tree
     hyfetch
+    fastfetch
     btop
 
     grim
