@@ -9,5 +9,6 @@
     ./includethesepkgspls.nix
     ./ps.nix
     ./home.nix
+    ./badapple.nix
   ];
 }
