@@ -2,7 +2,7 @@
 
 let
   sddm-astronaut = pkgs.sddm-astronaut.override {
-    embeddedTheme = "hyprland_kath";  # or any other theme
+    embeddedTheme = "hyprland_kath";
   };
 in {
   programs.hyprland = {

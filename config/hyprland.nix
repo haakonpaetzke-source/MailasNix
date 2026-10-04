@@ -3,8 +3,8 @@
     enable = true;
     #hallo
     #hi
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+    package = null;
+    portalPackage = null;
 
     xwayland.enable = true;
     configType = "lua";
