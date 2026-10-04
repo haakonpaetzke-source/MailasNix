@@ -10,7 +10,7 @@ let
       repo = "bad-apple-terminal";
       rev = "main";
 
-      hash = lib.fakeHash;
+      hash = "sha256-RaoVOXLqDtoGOjchH87mYzD9vGDaDlOdr9+G6QPJh3I=";
     };
 
     nativeBuildInputs = with pkgs; [
@@ -23,12 +23,13 @@ let
     ];
 
     buildPhase = ''
+      mkdir -p build/release
       make DEBUG=OFF
     '';
 
     installPhase = ''
       mkdir -p $out/bin
-      cp bad-apple-terminal $out/bin/badapple
+      cp build/release/bad-apple-terminal $out/bin/badapple
     '';
   };
 in
