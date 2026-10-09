@@ -6,7 +6,7 @@
        echo "-> Updating flake..." 
        sudo nix flake update --flake /etc/nixos 
        echo "-> Rebuilding NixOS..." 
-       sudo nixos-rebuild switch --flake /etc/nixos#nixos 
+       sudo nixos-rebuild switch --flake "/etc/nixos#$(hostname)" 
        echo "✓ NixOS is up to date :3" 
        echo "
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡤⢤⣤⣤⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -46,7 +46,7 @@
  
      (pkgs.writeShellScriptBin "Update" 
      '' 
-       sudo nixos-rebuild switch --flake /etc/nixos#nixos 
+       sudo nixos-rebuild switch --flake "/etc/nixos#$(hostname)"
        echo "
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡤⢤⣤⣤⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⢀⣶⣧⣐⠍⢙⣀⣼⣿⣿⣅⡐⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -88,12 +88,12 @@
      
      (pkgs.writeShellScriptBin "nixtest" 
      '' 
-       sudo nixos-rebuild test --flake /etc/nixos#nixos 
+       sudo nixos-rebuild test --flake "/etc/nixos#$(hostname)"
      '') 
 
      (pkgs.writeShellScriptBin "writeboot" 
      '' 
-       sudo nixos-rebuild boot --flake /etc/nixos#nixos 
+       sudo nixos-rebuild boot --flake "/etc/nixos#$(hostname)"
      '') 
     
      (pkgs.writeShellScriptBin "cleanUP" 
@@ -207,6 +207,8 @@
       "..." = "cd ../.."; 
       "...." = "cd ../../.."; 
       "nixH" = "cd /etc/nixos/";
+      "nixT" = "cd /etc/nixos/Yggdrasil";
+      "nixM" = "cd /etc/nixos/Modules";
     
       # Git shit 
       gs = "git status"; 

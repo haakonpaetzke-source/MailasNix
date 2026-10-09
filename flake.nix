@@ -101,7 +101,7 @@
           };
         
           modules = [
-            ./Yggdrasil/Sheoldred/configuration.nix
+            ./Yggdrasil/Sheoldred/config.nix
 
             inputs.home-manager.nixosModules.home-manager
 
@@ -117,6 +117,29 @@
             inputs.milk-grub-theme.nixosModule
           ];
         };
+      Yriel = lib.nixosSystem {
+          specialArgs = { 
+              inherit pkgs-stable inputs;
+              inherit osage-grub-theme;
+          };
+        
+        modules = [
+          ./Yggdrasil/Yriel/config.nix
+
+          inputs.home-manager.nixosModules.home-manager
+
+          {
+            home-manager.extraSpecialArgs = {
+              inherit pkgs pkgs-stable inputs;
+              hostName = "Yriel";
+            };
+          }
+
+          inputs.chaotic.nixosModules.default
+
+          inputs.milk-grub-theme.nixosModule
+        ];
       };
     };
+  };
 }

@@ -3,7 +3,7 @@
     ./audio.nix
     ./boot.nix
     ./network.nix
-    ./ordundzeit.nix
+    ./ortundzeit.nix
     ./user.nix
     ./ps.nix
   ];

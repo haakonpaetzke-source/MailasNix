@@ -3,14 +3,13 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 { config, pkgs, lib, inputs, ... }:
-
+let
+  pre = ../../modules/bausteine;
+in
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   #import all modules
-  let
-    pre = ../../modules/bausteine;
-  in
   imports =
     [ 
       ./home.nix
@@ -20,6 +19,7 @@
       (pre + "/includethesepkgspls.nix")
       (pre + "/fonts.nix")
       (pre + "/systemCore")
+      (pre + "/niv.nix")
 #      ./badapple.nix
     ];
 

@@ -1,4 +1,4 @@
-{
+{ config, pkgs, ... } : {
   #Netzwerk
   networking = {
     networkmanager.enable = true;

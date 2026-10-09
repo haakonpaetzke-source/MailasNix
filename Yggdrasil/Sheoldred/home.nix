@@ -1,4 +1,8 @@
-{ config, pkgs, lib, inputs, ... }: {
+{ config, pkgs, lib, inputs, ... }: 
+let
+  pre = ../../modules/config;
+in
+{
    home-manager = {
      useGlobalPkgs = true;
      useUserPackages = true;
@@ -7,9 +11,6 @@
 
      users = {
        "mai" = { config, pkgs, lib, inputs, ... }:{
-	let
-          pre = ../../modules/config;
-        in
 	  imports = [
 	    (pre + "/hyprland")
 	    (pre + "/git.nix")
