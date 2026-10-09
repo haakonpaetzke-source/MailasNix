@@ -93,27 +93,31 @@
        lib = inputs.nixpkgs.lib;
     in  
     {
-      nixosConfigurations.nixos = lib.nixosSystem {
-        specialArgs = { 
-           inherit pkgs-stable inputs;
-           inherit osage-grub-theme;
-        };
+      nixosConfigurations = {
+        Sheoldred = lib.nixosSystem {
+          specialArgs = { 
+              inherit pkgs-stable inputs;
+              inherit osage-grub-theme;
+          };
         
-        modules = [
-          ./configuration.nix
+          modules = [
+            ./Yggdrasil/Sheoldred/configuration.nix
+            ./Yggdrasil/Sheoldred/home.nix
 
-          inputs.home-manager.nixosModules.home-manager
+            inputs.home-manager.nixosModules.home-manager
 
-          {
-             home-manager.extraSpecialArgs = {
-               inherit pkgs pkgs-stable inputs;
-             };
-          }
+            {
+              home-manager.extraSpecialArgs = {
+                inherit pkgs pkgs-stable inputs;
+                hostName = "Sheoldred";
+              };
+            }
 
-          inputs.chaotic.nixosModules.default
+            inputs.chaotic.nixosModules.default
 
-          inputs.milk-grub-theme.nixosModule
-        ];
+            inputs.milk-grub-theme.nixosModule
+          ];
+        };
       };
     };
 }
