@@ -102,7 +102,6 @@
         
           modules = [
             ./Yggdrasil/Sheoldred/configuration.nix
-            ./Yggdrasil/Sheoldred/home.nix
 
             inputs.home-manager.nixosModules.home-manager
 

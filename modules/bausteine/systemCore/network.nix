@@ -3,8 +3,6 @@
   networking = {
     networkmanager.enable = true;
     enableIPv6 = true;
-
-    hostName = "Sheoldred";
   };
 
   #Blau Zahn :3

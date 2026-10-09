@@ -5,14 +5,23 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  #import all modules
+  let
+    pre = ../../modules/bausteine;
+  in
   imports =
     [ 
+      ./home.nix
       ./hardware-configuration.nix
-      ./modules/default.nix
+      
+      (pre + "/sddm-hyprland.nix")
+      (pre + "/includethesepkgspls.nix")
+      (pre + "/fonts.nix")
+      (pre + "/systemCore")
+#      ./badapple.nix
     ];
-
-  #enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -41,4 +50,5 @@
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "26.05"; # Did you read the comment?
 
+  networking.hostName = "Sheoldred";
 }
