@@ -20,6 +20,7 @@ in
       (pre + "/fonts.nix")
       (pre + "/systemCore")
       (pre + "/niv.nix")
+      (pre + "/boot-bios.nix")
 #      ./badapple.nix
     ];
 

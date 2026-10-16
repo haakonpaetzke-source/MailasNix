@@ -19,6 +19,7 @@ in
       (pre + "/includethesepkgspls.nix")
       (pre + "/fonts.nix")
       (pre + "/systemCore")
+      (pre + "/boot-efi.nix")
 #      ./badapple.nix
     ];
 
@@ -49,5 +50,5 @@ in
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "26.05"; # Did you read the comment?
 
-  networking.hostName = "Sheoldred";
+  networking.hostName = "Yriel";
 }

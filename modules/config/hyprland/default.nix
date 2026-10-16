@@ -23,7 +23,7 @@
 
       wallpaper = {
         monitor = "";
-        path = "/etc/nixos/modules/config/pictures/ryo.jpeg";
+        path = "/home/mai/Pictures/Wallpaper/ryo.jpg";
         fit_mode = "cover";
       };
     };

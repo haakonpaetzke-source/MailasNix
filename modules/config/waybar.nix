@@ -1,5 +1,4 @@
-{config, paks, lib, ... }:
-{
+{config, paks, lib, ... }:{
   programs.waybar = {
     enable = true;
 
@@ -34,7 +33,7 @@
         "clock" = {
           format = "{:%H:%M   %d.%m.%Y}";
           tooltip-format = "{:%A, %d. %B %Y}";
-          format-alt = "{:%A, %d.%m.%Y}";
+          format-alt = "{:%A,%d.%m.%Y}";
         };
 
         "cpu" = {
@@ -48,7 +47,7 @@
         };
 
         "network" = {
-          format-wifi = "  {essid} ({signalStrength}%)";
+          format-wifi = " {essid} ({signalStrength}%)";
           format-ethernet = "🌸 Verbunden";
           format-disconnected = "💀 Kein Netzwerk";
           tooltip-format = "{ifname}: {ipaddr}/{cidr}";
@@ -64,7 +63,7 @@
         };
 
         "battery" = {
-          format = "{icon}  {capacity}%";
+          format = "{icon} {capacity}%";
           format-icons = [ "" "" "" "" "" ];
           format-charging = "  {capacity}%";
           states = {
@@ -129,7 +128,7 @@
       #battery.critical { color: #8b3a3a; }
       #battery.charging { color: #4a5d43; }
 
-      #clock, #battery, #network, #pulseaudio, #tray {
+      #cpu #memory #clock, #battery, #network, #pulseaudio, #tray {
         padding: 0 10px;
       }
     '';
