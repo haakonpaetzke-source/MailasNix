@@ -667,6 +667,19 @@
         "type": "github"
       }
     },
+    "miku-cursors": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1792327595,
+        "narHash": "sha256-eU0tOksHR8x093aqdYWs/pzra5yrIS4eqkpkSNek68M=",
+        "path": "/home/mai/customization/cursor-src/miku",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/mai/customization/cursor-src/miku",
+        "type": "path"
+      }
+    },
     "milk-grub-theme": {
       "inputs": {
         "nixpkgs": "nixpkgs_2"
@@ -901,6 +914,7 @@
         "home-manager": "home-manager_2",
         "hyprland": "hyprland",
         "hyprlock": "hyprlock",
+        "miku-cursors": "miku-cursors",
         "milk-grub-theme": "milk-grub-theme",
         "nixcord": "nixcord",
         "nixpkgs": "nixpkgs_3",

@@ -1,4 +1,8 @@
 { config, pkgs, inputs, ... }: {
+  imports = [
+    ../cursor
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     #hallo
@@ -23,7 +27,7 @@
 
       wallpaper = {
         monitor = "";
-        path = "/home/mai/Pictures/Wallpaper/ryo.jpg";
+        path = "/home/mai/customization/Wallpaper/ryo.jpg";
         fit_mode = "cover";
       };
     };

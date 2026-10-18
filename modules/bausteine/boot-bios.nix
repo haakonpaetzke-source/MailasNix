@@ -3,7 +3,7 @@
     grub = {
       enable = true;
 
-      efiSupport = flase;
+      efiSupport = false;
       device = "/dev/sda";
 
       useOSProber = true;

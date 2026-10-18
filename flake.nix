@@ -28,6 +28,11 @@
       flake = false;
     };
 
+    miku-cursors = {
+      url = "path:/home/mai/customization/cursor-src/miku";
+      flake = false;
+    };
+
     milk-grub-theme = {
       url = "github:gemakfy/MilkGrub";
     };    

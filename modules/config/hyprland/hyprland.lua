@@ -22,8 +22,12 @@ hl.on("hyprland.start", function()
 end)
 
 -- fancy aussehen oder so...
+hl.env("XCURSOR_THEME", "miku")
 hl.env("XCURSOR_SIZE", "24")
+hl.env("HYPRCURSOR_THEME", "miku")
 hl.env("HYPRCURSOR_SIZE", "24")
+
+hl.config({ cursor = { size = 24 } })
 
 hl.config({
   general = {
