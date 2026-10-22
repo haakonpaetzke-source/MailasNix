@@ -27,8 +27,6 @@ hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_THEME", "miku")
 hl.env("HYPRCURSOR_SIZE", "24")
 
-hl.config({ cursor = { size = 24 } })
-
 hl.config({
   general = {
     gaps_in = 5,

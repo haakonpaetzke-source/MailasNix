@@ -3,7 +3,9 @@ let
   miku = pkgs.callPackage ./miku-cursor-theme.nix { inherit inputs; };
 in
 {
-  home-manager.users.mai.home.pointerCursor = {
+  home.pointerCursor = {
+    enable = true;
+
     name = "miku";
     package = miku;
     size = 24;
