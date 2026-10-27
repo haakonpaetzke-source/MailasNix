@@ -27,6 +27,8 @@ hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_THEME", "miku")
 hl.env("HYPRCURSOR_SIZE", "24")
 
+hl.env("WEBKIT_DISABLE_DMABUF_RENDERER", "1")
+
 hl.config({
   general = {
     gaps_in = 5,

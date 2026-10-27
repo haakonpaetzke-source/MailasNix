@@ -3,6 +3,10 @@
     ../cursor
   ];
 
+  home.sessionVariables = {
+    _JAVA_AWT_WM_NONREPARENTING = "1";
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     #hallo
