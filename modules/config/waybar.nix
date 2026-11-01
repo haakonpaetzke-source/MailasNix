@@ -6,8 +6,13 @@
       mainBar = {
         layer = "top";
         position = "top";
-        height = 32;
-        spacing = 0;
+        height = 20;
+        spacing = 8;
+	margin-top = 8;
+	margin-left = 8;
+	margin-right = 8;
+	mode = "dock";
+	reload_style_on_change = true;
 
         modules-left = [ "hyprland/workspaces" "hyprland/window" ];
         modules-center = [ "clock" ];
@@ -80,8 +85,8 @@
 
     style = ''
       * {
-        font-family: "M PLUS Rounded 1c", "Noto Color Emoji";
-        font-size: 13px;
+        font-family: "CaskaydiaMono Nerd Font";
+        font-size: 12px;
         border: none;
         border-radius: 0;
         letter-spacing: 1px;

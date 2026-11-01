@@ -14,7 +14,7 @@
 
       plugins = {
         betterFolders = {
-          enable = true;
+          enable = false;
         };
 
         betterUploadButton = {

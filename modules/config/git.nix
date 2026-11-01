@@ -1,9 +1,13 @@
 {config, pkgs, lib, ...}: {
   programs.git = {
     enable = true;
-    userName = "Maila"; # Replace with your actual name
-    userEmail = "maila@gmail.com"; # Replace with your actual email
-    extraConfig = {
+    
+    settings = {
+      user = {
+	name = "Maila";
+	email = "maila@gmail.com";
+      };
+
       init.defaultBranch = "main";
       safe.directory = "/etc/nixos";
     };

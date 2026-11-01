@@ -40,8 +40,11 @@
   #Miaun :3
   services.mako = {
     enable = true;
-    defaultTimeout = 5000;
-    backgroundColor = "#1e1e2e";
-    textColor = "#cdd6f4";
+    
+    settings = {
+      default-timeout = 5000;
+      background-color = "#1e1e2e";
+      text-color = "#cdd6f4";
+    };
   };
 }
